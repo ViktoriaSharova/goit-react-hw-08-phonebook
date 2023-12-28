@@ -1,14 +1,12 @@
 import { useDispatch } from 'react-redux';
-import { setStoreFilter } from '../../redux/Contacts/ContactsSlice';
+import { filters } from '../../redux/Contacts/ContactsSlice';
 import { FilterText, InputFilter } from './Filter.styled';
 
 export const Filter = () => {
-  const currentFilter = useSelector(selectFilter);
-
   const dispatch = useDispatch();
 
-  const onSetFilter = newSearch => {
-    dispatch(setStoreFilter(newSearch));
+  const updateFilter = value => {
+    dispatch(filters(value));
   };
   return (
       <FilterText>Find contact by name
@@ -16,8 +14,7 @@ export const Filter = () => {
         type="text"
         name="search"
         placeholder="Type name"
-        value={currentFilter}
-        onChange={evt => onSetFilter(evt.target.value)}
+        onChange={evt => updateFilter(evt.target.value)}
       ></InputFilter>
     </FilterText>
   );

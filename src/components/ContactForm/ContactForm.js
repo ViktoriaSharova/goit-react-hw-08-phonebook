@@ -6,6 +6,9 @@ import {
     FormBtn,
 } from './ContactForm.styled';
 import * as Yup from 'yup';
+import { useDispatch, useSelector } from 'react-redux';
+import { addContacts } from '../../redux/Contacts/Operations';
+import { selectContacts } from '../../redux/Contacts/Selectors';
 
 const contactsSheme = Yup.object().shape({
   name: Yup.string().required('Required'),
@@ -22,7 +25,7 @@ export const ContactForm = () => {
       alert(`${value.name} is already in contacts.`);
       return;
     } else {
-      dispatch(addContact(value));
+      dispatch(addContacts(value));
     }
   };
 

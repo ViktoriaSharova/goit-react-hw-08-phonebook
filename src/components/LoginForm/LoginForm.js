@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { logIn } from 'redux/Auth/Operations';
+import { logIn } from '../../redux/Auth/Operations';
 import { TextField, Button, Container } from '@mui/material';
 
 export const LoginForm = () => {
@@ -27,6 +27,7 @@ export const LoginForm = () => {
           variant="outlined"
           fullWidth
           margin="normal"
+          autoComplete="current-password"
           required
         />
 
@@ -37,6 +38,7 @@ export const LoginForm = () => {
           variant="outlined"
           fullWidth
           margin="normal"
+          autoComplete="current-password"
           required
         />
 
