@@ -14,6 +14,7 @@ export const Filter = () => {
         type="text"
         name="search"
         placeholder="Type name"
+        autoComplete="current-password"
         onChange={evt => updateFilter(evt.target.value)}
       ></InputFilter>
     </FilterText>

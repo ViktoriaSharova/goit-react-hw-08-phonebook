@@ -10,20 +10,21 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addContacts } from '../../redux/Contacts/Operations';
 import { selectContacts } from '../../redux/Contacts/Selectors';
 
-const contactsSheme = Yup.object().shape({
+const phonebookSchema = Yup.object().shape({
   name: Yup.string().required('Required'),
   number: Yup.string().required('Required'),
 });
 
 export const ContactForm = () => {
+  const dataContacts = useSelector(selectContacts);
   const dispatch = useDispatch();
-  const contacts = useSelector(selectContacts);
 
-  const handleSubmit = value => {
-    const hasName = contacts.some(contact => contact.name === value.name);
-    if (hasName) {
-      alert(`${value.name} is already in contacts.`);
-      return;
+  const handelForm = value => {
+    if (
+      dataContacts &&
+      dataContacts.some(contact => contact.name === value.name)
+    ) {
+      alert('This contact is in your phone book');
     } else {
       dispatch(addContacts(value));
     }
@@ -35,10 +36,10 @@ export const ContactForm = () => {
         name: '',
         number: '',
       }}
-      validationSchema={contactsSheme}
-      onSubmit={(values, actions) => {
-        handleSubmit(values);
-        actions.resetForm();
+      validationSchema={phonebookSchema}
+      onSubmit={(value, action) => {
+        handelForm(value);
+        action.resetForm();
       }}
     >
       <FormWrapper>

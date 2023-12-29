@@ -20,7 +20,8 @@ export const RegisterForm = () => {
 
   return (
     <Container maxWidth="sm">
-      <form onSubmit={handleSubmit} autoComplete="off">
+      <form onSubmit={handleSubmit} >
+        {/* autoComplete="off" */}
         <TextField
           type="text"
           name="name"
@@ -28,6 +29,7 @@ export const RegisterForm = () => {
           variant="outlined"
           fullWidth
           margin="normal"
+          autoComplete="current-password"
           required
         />
 
@@ -38,6 +40,7 @@ export const RegisterForm = () => {
           variant="outlined"
           fullWidth
           margin="normal"
+          autoComplete="current-password"
           required
         />
 
@@ -48,6 +51,7 @@ export const RegisterForm = () => {
           variant="outlined"
           fullWidth
           margin="normal"
+          autoComplete="current-password"
           required
         />
         <Button type="submit" variant="outlined">

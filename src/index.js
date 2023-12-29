@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import { persistor, store } from './redux/Contacts/Store';
 import { PersistGate } from 'redux-persist/integration/react';
 import { BrowserRouter } from 'react-router-dom';
-// import { GlobalStyle } from './GlobaleStyled';
+import { GlobalStyle } from './GlobaleStyled';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -15,7 +15,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <App />
         </BrowserRouter>
       </PersistGate>
-      {/* <GlobalStyle /> */}
+      <GlobalStyle />
     </Provider>
   </React.StrictMode>
 );
